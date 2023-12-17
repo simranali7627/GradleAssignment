@@ -1,0 +1,41 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.0'
+	id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// Apache POI for working with Microsoft Office documents
+	implementation 'org.apache.poi:poi:5.1.0'
+	implementation 'org.apache.poi:poi-ooxml:5.1.0'
+
+	// JCharts for creating charts
+	implementation 'org.knowm.xchart:xchart:3.8.0'
+
+	// Apache DBCP for database connection pooling
+	implementation 'org.apache.commons:commons-dbcp2:2.10.0'
+
+	// iTextPDF for creating and manipulating PDF documents
+	implementation 'com.itextpdf:itextpdf:5.5.13'
+
+	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.26'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
